@@ -1,2 +1,2 @@
 # rocketLauncher
-Arduino rocket launcher
+Simple arduino rocket launcher.
