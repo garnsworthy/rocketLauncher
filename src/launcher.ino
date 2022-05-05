@@ -14,7 +14,6 @@ State* S3 = machine.addState(&state3);
 State* S4 = machine.addState(&state4);
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(relayContinuity, OUTPUT);
   pinMode(relayLaunch, OUTPUT);
 
