@@ -29,6 +29,7 @@ void state3() {
 void state4() {
   Serial.println("state 4");
   digitalWrite(RELAY_CONTINUITY, LOW);
+  setColor(YELLOW);
 }
 
 void state5() {
