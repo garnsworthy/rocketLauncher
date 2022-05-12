@@ -31,7 +31,7 @@ void state4() {
   for(int i=0; i<5; i++) {
     setColor(YELLOW);
     delay(500);
-    setColor(BLACK);
+    setColor(OFF);
     delay(500);
   }
 }
