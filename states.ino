@@ -5,6 +5,7 @@ void state0() {
   Serial.println("state 0");
   digitalWrite(RELAY_CONTINUITY, LOW);
   digitalWrite(RELAY_IGNITOR, LOW);
+  setColor(RED);
 }
 
 // wait for con switch low
@@ -23,34 +24,39 @@ void state2() {
 void state3() {
   Serial.println("state 3");
   digitalWrite(RELAY_CONTINUITY, LOW);
-  delay(100);
 }
 
 void state4() {
   Serial.println("state 4");
-  digitalWrite(RELAY_CONTINUITY, LOW);
-  setColor(YELLOW);
+  for(int i=0; i<5; i++) {
+    setColor(YELLOW);
+    delay(500);
+    setColor(BLACK);
+    delay(500);
+  }
 }
 
 void state5() {
   Serial.println("state 5");
-  delay(5000);
+  setColor(GREEN);
 }
 
 void state6() {
   Serial.println("state 6");
-
-}
-
-void state7() {
-  Serial.println("state 4");
+  digitalWrite(RELAY_IGNITOR, HIGH);
+  delay(200);
+  // will go to low in 0
 }
 
 // TRANSITIONS
+bool tTrue() {
+  return true;
+}
 
 // state 1 if continuty switch is off
 bool t01() {
-  return digitalRead(INPUT_CONTINUITY_SWITCH) == LOW;
+  return digitalRead(INPUT_CONTINUITY_SWITCH) == LOW &&
+         digitalRead(INPUT_ARM_KEY) == LOW;
 }
 
 // state 2 once switch is turned on.
@@ -66,7 +72,11 @@ bool t23() {
   return  reading > 100 && reading < 500;
 }
 
-// if 2-3 fails then we want to go back to 0
-bool t20() {
-  return true;
+// if arm switch on
+bool t34() {
+  return digitalRead(INPUT_ARM_KEY) == HIGH;
+}
+
+bool t56() {
+  return digitalRead(INPUT_LAUCH_BUTTON) == HIGH;
 }

@@ -8,6 +8,7 @@ const int BLUE_PIN = 9;
 const byte RED[] = {255,0,0};
 const byte YELLOW[] = {255,255,0};
 const byte GREEN[] = {0,255,0};
+const byte BLACK[] = {0,0,0};
 
 void lightSetup() {
     pinMode(RED_PIN, OUTPUT);
