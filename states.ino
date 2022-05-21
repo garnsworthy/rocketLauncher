@@ -55,13 +55,13 @@ bool tTrue() {
 
 // state 1 if continuty switch is off
 bool t01() {
-  return digitalRead(INPUT_CONTINUITY_SWITCH) == LOW &&
-         digitalRead(INPUT_ARM_KEY) == LOW;
+  return digitalRead(INPUT_CONTINUITY_SWITCH) == HIGH &&
+         digitalRead(INPUT_ARM_KEY) == HIGH;
 }
 
 // state 2 once switch is turned on.
 bool t12() {
-  return digitalRead(INPUT_CONTINUITY_SWITCH) == HIGH;
+  return digitalRead(INPUT_CONTINUITY_SWITCH) == LOW;
 }
 
 // state 3 once we verify continuity
@@ -74,9 +74,9 @@ bool t23() {
 
 // if arm switch on
 bool t34() {
-  return digitalRead(INPUT_ARM_KEY) == HIGH;
+  return digitalRead(INPUT_ARM_KEY) == LOW;
 }
 
 bool t56() {
-  return digitalRead(INPUT_LAUCH_BUTTON) == HIGH;
+  return digitalRead(INPUT_LAUCH_BUTTON) == LOW;
 }

@@ -20,9 +20,9 @@ State* S6 = machine.addState(&state6);
 void setup() {
   pinMode(RELAY_CONTINUITY, OUTPUT);
   pinMode(RELAY_IGNITOR, OUTPUT);
-  pinMode(INPUT_CONTINUITY_SWITCH, INPUT);
-  pinMode(INPUT_ARM_KEY, INPUT);
-  pinMode(INPUT_LAUCH_BUTTON, INPUT);
+  pinMode(INPUT_CONTINUITY_SWITCH, INPUT_PULLUP);
+  pinMode(INPUT_ARM_KEY, INPUT_PULLUP);
+  pinMode(INPUT_LAUCH_BUTTON, INPUT_PULLUP);
 
   S0->addTransition(&t01, S1);
   S1->addTransition(&t12, S2);
