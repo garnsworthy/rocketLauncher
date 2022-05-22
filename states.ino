@@ -27,7 +27,7 @@ void state2() {
   Serial.println("state 2");
   digitalWrite(RELAY_CONTINUITY1, LOW);
   digitalWrite(RELAY_CONTINUITY2, LOW);
-  delay(100);
+  delay(50);
   
 }
 
@@ -83,7 +83,7 @@ bool t23() {
   int reading = analogRead(INPUT_CONTINUITY);
   Serial.print("Continuity Reading: ");
   Serial.println(reading);
-  return  reading > 400 && reading < 600;
+  return  reading > 200 && reading < 800;
 }
 
 // if arm switch on
