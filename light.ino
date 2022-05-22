@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
-const int RED_PIN = 11;
+const int RED_PIN = 9;
 const int GREEN_PIN = 10;
-const int BLUE_PIN = 9;
+const int BLUE_PIN = 11;
 
 // red, green, blue
 const byte RED[] = {255,0,0};
