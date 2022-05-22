@@ -3,8 +3,10 @@
 // initial
 void state0() {
   Serial.println("state 0");
-  digitalWrite(RELAY_CONTINUITY, LOW);
-  digitalWrite(RELAY_IGNITOR, LOW);
+  digitalWrite(RELAY_CONTINUITY1, HIGH);
+  digitalWrite(RELAY_IGNITOR1, HIGH);
+  digitalWrite(RELAY_CONTINUITY2, HIGH);
+  digitalWrite(RELAY_IGNITOR2, HIGH);
   setColor(RED);
 }
 
@@ -16,14 +18,17 @@ void state1() {
 // con switch went high, test continuity
 void state2() {
   Serial.println("state 2");
-  digitalWrite(RELAY_CONTINUITY, HIGH);
+  digitalWrite(RELAY_CONTINUITY1, LOW);
+  digitalWrite(RELAY_CONTINUITY2, LOW);
   
 }
 
 // good continuity, no longer need to test.
 void state3() {
   Serial.println("state 3");
-  digitalWrite(RELAY_CONTINUITY, LOW);
+  setColor(YELLOW);
+  digitalWrite(RELAY_CONTINUITY1, HIGH);
+  digitalWrite(RELAY_CONTINUITY2, HIGH);
 }
 
 void state4() {
@@ -43,7 +48,8 @@ void state5() {
 
 void state6() {
   Serial.println("state 6");
-  digitalWrite(RELAY_IGNITOR, HIGH);
+  digitalWrite(RELAY_IGNITOR1, LOW);
+  digitalWrite(RELAY_IGNITOR2, LOW);
   delay(200);
   // will go to low in 0
 }
@@ -56,7 +62,7 @@ bool tTrue() {
 // state 1 if continuty switch is off
 bool t01() {
   return digitalRead(INPUT_CONTINUITY_SWITCH) == HIGH &&
-         digitalRead(INPUT_ARM_KEY) == HIGH;
+         digitalRead(INPUT_ARM_KEY) == LOW;
 }
 
 // state 2 once switch is turned on.
@@ -74,7 +80,7 @@ bool t23() {
 
 // if arm switch on
 bool t34() {
-  return digitalRead(INPUT_ARM_KEY) == LOW;
+  return digitalRead(INPUT_ARM_KEY) == HIGH;
 }
 
 bool t56() {

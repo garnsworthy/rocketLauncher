@@ -5,10 +5,10 @@ const int GREEN_PIN = 10;
 const int BLUE_PIN = 11;
 
 // red, green, blue
-const byte RED[] = {255,0,0};
-const byte YELLOW[] = {255,255,0};
-const byte GREEN[] = {0,255,0};
-const byte BLACK[] = {0,0,0};
+const byte RED[] = {0,255,255};
+const byte YELLOW[] = {100,0,255};
+const byte GREEN[] = {255,0,255};
+const byte BLACK[] = {255,255,255};
 
 void lightSetup() {
     pinMode(RED_PIN, OUTPUT);
