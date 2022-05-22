@@ -7,6 +7,13 @@ void state0() {
   digitalWrite(RELAY_IGNITOR1, HIGH);
   digitalWrite(RELAY_CONTINUITY2, HIGH);
   digitalWrite(RELAY_IGNITOR2, HIGH);
+
+    for(int i=0; i<5; i++) {
+    setColor(RED);
+    delay(500);
+    setColor(BLACK);
+    delay(500);
+  }
   setColor(RED);
 }
 
